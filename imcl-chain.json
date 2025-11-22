@@ -1,0 +1,19 @@
+{
+  "chainId": "0x7B0",
+  "chainName": "Integrated MCL Chain (iMCL)",
+  "nativeCurrency": {
+    "name": "iMCL",
+    "symbol": "iMCL",
+    "decimals": 18
+  },
+  "rpc": [
+    "https://imcldc.ngrok.io"
+  ],
+  "explorers": [
+    {
+      "name": "iMCL Explorer",
+      "url": "https://explorer.imcldc.com",
+      "standard": "EIP3091"
+    }
+  ]
+}

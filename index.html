@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add iMCL Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      background-color: black;
+      font-family: Arial, sans-serif;
+      color: #00ff9d;
+      text-align: center;
+      margin: 0;
+      padding: 50px;
+      background-image: linear-gradient(to bottom, #000, #002400);
+    }
+    .button {
+      background-color: #00ff9d;
+      color: black;
+      padding: 18px 35px;
+      border: none;
+      border-radius: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      margin-top: 40px;
+      font-weight: bold;
+      box-shadow: 0 0 15px #00ff9d;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background-color: #00c977;
+      box-shadow: 0 0 25px #00ff9d;
+    }
+    h1 {
+      font-size: 32px;
+      margin-top: 50px;
+      text-shadow: 0 0 10px #00ff9d;
+    }
+    p {
+      font-size: 18px;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Integrated MCL Chain (iMCL)</h1>
+  <p>Click below to add the official iMCL Layer-1 network to MetaMask.</p>
+
+  <button class="button" onclick="addIMCL()">Add iMCL to MetaMask</button>
+
+  <script>
+    async function addIMCL() {
+      const rpcUrl = "https://imcldc.ngrok.io"; // FINAL RPC
+
+      if (!window.ethereum) {
+        alert("MetaMask is not detected. Please install MetaMask.");
+        return;
+      }
+
+      try {
+        await window.ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              chainId: "0x7B0",
+              chainName: "Integrated MCL Chain (iMCL)",
+              rpcUrls: [rpcUrl],
+              nativeCurrency: {
+                name: "iMCL",
+                symbol: "iMCL",
+                decimals: 18
+              },
+              blockExplorerUrls: ["https://explorer.imcldc.com"]
+            }
+          ]
+        });
+
+        alert("iMCL Network successfully added!");
+      } catch (err) {
+        console.error(err);
+        alert("Error adding network. Check the console.");
+      }
+    }
+  </script>
+</body>
+</html>
